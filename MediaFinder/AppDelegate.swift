@@ -5,19 +5,44 @@
 //  Created by ali mahmood saad on 6/2/20.
 //  Copyright © 2020 ali mahmood. All rights reserved.
 //
-
+import IQKeyboardManagerSwift
 import UIKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    let isLoggedIn = UserDefaults.standard.bool(forKey: "IsLoggedIn")
+    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    private func setRootView(){
+            if isLoggedIn {
+                DataBaseManager.shared().setUpConnection()
+                let rootVC = (mainStoryBoard.instantiateViewController(withIdentifier: "MoviesVC") as! MoviesVC)
+                let navigationController = UINavigationController(rootViewController: rootVC)
+                let window = UIApplication.shared.windows.first
+                
+                window?.rootViewController = navigationController
+            } else  {
+                DataBaseManager.shared().setUpConnection()
+                let rootVC = (mainStoryBoard.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC)
+                let navigationController = UINavigationController(rootViewController: rootVC)
+                let window = UIApplication.shared.windows.first
+                
+                window?.rootViewController = navigationController
+            }  
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        IQKeyboardManager.shared.enable = true
+        setRootView()
         return true
     }
+    
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
