@@ -11,13 +11,10 @@
 
 ### MVC is probably the best-known architecture pattern in the world.
 ### There are three components: Model, View, and Controller:
-- View: displays what it is told to by the Presenter and relays user input back to the Presenter.
 
-- The Model is where your data resides. Things like persistence, model objects, parsers, managers, and networking code live there.
-
-- The View layer is the face of your app. Its classes are often reusable as they don’t contain any domain-specific logic. For example, a UILabel is a view that presents text on the screen, and it’s reusable and extensible.
-
-- The Controller mediates between the view and the model via the delegation pattern. In an ideal scenario, the controller entity won’t know the concrete view it’s dealing with. Instead, it will communicate with an abstraction via a protocol. A classic example is the way a UITableView communicates with its data source via the UITableViewDataSource protocol.
+- The **Model** is where your data resides. Things like persistence, model objects, parsers, managers, and networking code live there.
+- The **View** layer is the face of your app. Its classes are often reusable as they don’t contain any domain-specific logic. For example, a UILabel is a view that presents text on the screen, and it’s reusable and extensible.
+- The **Controller** mediates between the view and the model via the delegation pattern. In an ideal scenario, the controller entity won’t know the concrete view   it’s dealing with. Instead, it will communicate with an abstraction via a protocol. A classic example is the way a UITableView communicates with its data source via the UITableViewDataSource protocol.
 
 # Screenshots
 ## Who are you
