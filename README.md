@@ -1,7 +1,7 @@
 # MediaFinder
 
 > Product description:
-- My first mobile app using swift.
+- My first mobile app using **Storyboard**.
 - Fetch data from the internet with API (iTunes API) Using Alamofire - MVC.
 - Using SQLite to save user data.
 - Building Adaptive UI for iPhone and iPad using Auto Layout.
